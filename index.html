@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cocktail Capture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,6 +26,31 @@
       <button id="btnSave" class="primary">Save to gallery</button>
       <button id="btnDownload">Download</button>
     </div>
+    <div class="editor" id="editor" hidden>
+      <h2>Edit photo</h2>
+      <label class="rng">Zoom <input type="range" id="ez" min="50" max="300" value="100"><output></output></label>
+      <label class="rng">Left / right <input type="range" id="ex" min="-100" max="100" value="0"><output></output></label>
+      <label class="rng">Up / down <input type="range" id="ey" min="-100" max="100" value="0"><output></output></label>
+      <label class="rng">Rotate <input type="range" id="er" min="-180" max="180" value="0"><output></output></label>
+      <div class="row">
+        <select id="ef" aria-label="Filter">
+          <option value="">Original</option><option value="grayscale(1)">Black and white</option>
+          <option value="sepia(.8)">Vintage</option><option value="saturate(1.6) contrast(1.1)">Vivid</option>
+          <option value="brightness(1.15)">Bright</option>
+        </select>
+        <button id="eflip">Flip</button><button id="ereset">Reset</button>
+      </div>
+      <p class="hint">Drag the photo to move it. Scroll to zoom.</p>
+    </div>
+  </section>
+  <section class="card">
+    <h2>Bar background</h2>
+    <div id="scenes"></div>
+    <div class="row between">
+      <label class="chk"><input type="checkbox" id="props" checked> Bar props (shelf, sign, counter)</label>
+      <label class="btn small">Use your own background<input id="bgfile" type="file" accept="image/*" hidden></label>
+    </div>
+    <label class="txt">Sign text <input id="sign" maxlength="28" value="COCKTAIL CAPTURE"></label>
   </section>
   <section class="gallery">
     <h2>Gallery</h2>
@@ -32,6 +58,7 @@
     <div id="grid"></div>
   </section>
 </main>
+<script src="patterns.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
