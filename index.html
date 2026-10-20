@@ -10,7 +10,8 @@
 <body>
 <main>
   <section class="booth">
-    <div class="stagewrap">
+    <div class="seg" id="modes" role="group" aria-label="Photo layout"></div>
+    <div class="stagewrap strip" id="stagewrap">
       <canvas id="stage"></canvas>
       <div id="count" aria-live="assertive"></div>
       <div id="flash"></div>
@@ -19,15 +20,16 @@
     <div class="row" id="live-actions">
       <button id="btnCam">Start camera</button>
       <button id="btnSnap" class="primary" disabled>Take photo</button>
-      <label class="btn">Upload photo<input id="file" type="file" accept="image/*" hidden></label>
+      <label class="btn">Upload photos<input id="file" type="file" accept="image/*" multiple hidden></label>
     </div>
     <div class="row" id="review-actions" hidden>
       <button id="btnRetake">Retake</button>
+      <button id="btnRetakeAll">Retake all</button>
       <button id="btnSave" class="primary">Save to gallery</button>
       <button id="btnDownload">Download</button>
     </div>
     <div class="editor" id="editor" hidden>
-      <h2>Edit photo</h2>
+      <h2 id="edtitle">Edit photo</h2>
       <label class="rng">Zoom <input type="range" id="ez" min="50" max="300" value="100"><output></output></label>
       <label class="rng">Left / right <input type="range" id="ex" min="-100" max="100" value="0"><output></output></label>
       <label class="rng">Up / down <input type="range" id="ey" min="-100" max="100" value="0"><output></output></label>
@@ -40,7 +42,7 @@
         </select>
         <button id="eflip">Flip</button><button id="ereset">Reset</button>
       </div>
-      <p class="hint">Drag the photo to move it. Scroll to zoom.</p>
+      <p class="hint">Drag the photo to move it. Scroll to zoom. Click a photo in the strip to choose which one to edit.</p>
     </div>
   </section>
   <section class="card">
